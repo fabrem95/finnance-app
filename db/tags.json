@@ -1,0 +1,16 @@
+{
+	"tags": [
+		{
+			"name": "Comida",
+			"subtags": []
+		},
+		{
+			"name": "Mensual",
+			"subtags": []
+		},
+		{
+			"name": "Sociales",
+			"subtags": []
+		}
+	]
+}
