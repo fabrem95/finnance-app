@@ -1,21 +1,39 @@
 import React, { useState } from "react";
-import Chart from "./components/chart/chart";
 import "./App.css";
 import socket from "./components/socket-client/socket-client";
+import Chart from "./components/chart/chart";
+import DateRngPicker from "./components/datepicker/datepicker";
 
 function App() {
+	//Sate
 	const [expenses, setExpenses] = useState([]);
 	const [tags, setTags] = useState([]);
-
-	const chartObj = {
-		expenses: expenses,
-		tags: tags,
-	};
+	const [selectionRange, setSelectionRange] = useState({
+		startDate: new Date(new Date().getFullYear(), new Date().getMonth(), 1),
+		endDate: new Date(new Date().getFullYear(), new Date().getMonth() + 1, 0),
+		key: "selection",
+	});
 
 	socket.on("connected", (dbExpenses, dbTags) => {
 		setExpenses(dbExpenses);
 		setTags(dbTags);
 	});
+
+	const dateRngObj = {
+		selectionRange: selectionRange,
+		handleDateRange: (ranges) => {
+			setSelectionRange(ranges.selection);
+		},
+	};
+
+	const chartObj = {
+		expenses: expenses.filter(
+			(exp) =>
+				new Date(exp.date) >= selectionRange.startDate &&
+				new Date(exp.date) <= selectionRange.endDate
+		),
+		tags: tags,
+	};
 
 	const OnSaveExpenses = () => {
 		const newExpense = {
@@ -57,6 +75,7 @@ function App() {
 				</div>
 				<button onClick={OnSaveExpenses}>Save</button>
 			</form>
+			<DateRngPicker dateRngObj={dateRngObj} />
 			<Chart chartObj={chartObj} />
 		</div>
 	);

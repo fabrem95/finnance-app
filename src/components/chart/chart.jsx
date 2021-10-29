@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Pie } from "react-chartjs-2";
 
 function Chart({ chartObj: { tags, expenses } }) {
@@ -10,7 +10,7 @@ function Chart({ chartObj: { tags, expenses } }) {
 		let data = [];
 		for (let tag of tagsNames) {
 			expenses.filter((exp) => {
-				if (exp.tag == tag)
+				if (exp.tag === tag)
 					data[tagsNames.indexOf(tag)] = !data[tagsNames.indexOf(tag)]
 						? exp.price
 						: data[tagsNames.indexOf(tag)] + exp.price;

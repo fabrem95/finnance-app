@@ -11,6 +11,22 @@
 		{
 			"name": "Sociales",
 			"subtags": []
+		},
+		{
+			"name": "Transporte",
+			"subtags": []
+		},
+		{
+			"name": "Delivery",
+			"subtags": []
+		},
+		{
+			"name": "Ropa",
+			"subtags": []
+		},
+		{
+			"name": "Regalos",
+			"subtags": []
 		}
 	]
 }
