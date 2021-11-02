@@ -1,4 +1,5 @@
 import React from "react";
+import "./chart.css";
 import { Pie } from "react-chartjs-2";
 
 function Chart({ chartObj: { tags, expenses } }) {
@@ -48,7 +49,7 @@ function Chart({ chartObj: { tags, expenses } }) {
 	};
 
 	return (
-		<section>
+		<section className="section-chart">
 			<Pie data={data} width={100} height={100} />
 		</section>
 	);

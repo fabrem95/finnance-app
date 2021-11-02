@@ -27,6 +27,18 @@
 		{
 			"name": "Regalos",
 			"subtags": []
+		},
+		{
+			"name": "Futbol",
+			"subtags": []
+		},
+		{
+			"name": "Efectivo",
+			"subtags": []
+		},
+		{
+			"name": "Rotaract",
+			"subtags": []
 		}
 	]
 }
